@@ -1,0 +1,31 @@
+.header {
+	height: $navbar-height;
+	background-color: $dark-grey;
+	z-index: 2;
+
+	@include breakpoint-up(xlarge) {
+		$navbar-height: 8rem;
+		height: $navbar-height;
+	}
+
+	&__nav {
+		margin: auto;
+		display: flex;
+		align-items: center;
+		height: 100%;
+
+		@include breakpoint-down(small) {
+			justify-content: center;
+		}
+
+		&__title {
+			color: $text-primary;
+
+			font-size: 2rem;
+
+			@include breakpoint-up(xlarge) {
+				font-size: 4rem;
+			}
+		}
+	}
+}

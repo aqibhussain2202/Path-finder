@@ -1,0 +1,79 @@
+.tooltip {
+	color: $faded-white;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	cursor: default;
+
+	@include breakpoint-up(xlarge) {
+		gap: 10px;
+	}
+
+	&__wrapper {
+		border-radius: 5px;
+		width: 25px;
+		height: 25px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+
+		@include breakpoint-up(xlarge) {
+			width: 50px;
+			height: 50px;
+		}
+
+		&.default {
+			background-color: $dark-grey;
+		}
+
+		&.yellow {
+			background-color: $yellow;
+		}
+
+		&.red {
+			background-color: $error;
+		}
+
+		&__info {
+			position: absolute;
+			background-color: $faded-grey;
+			border: 1px solid $light-grey;
+			padding: 0.5rem 0.5rem;
+			width: max-content;
+			z-index: 1;
+			border-radius: 5px;
+			left: 110%;
+			pointer-events: none;
+
+			@include breakpoint-up(xlarge) {
+				font-size: 40px;
+			}
+		}
+	}
+
+	&__icon {
+		color: $dark-grey;
+
+		@include breakpoint-up(xlarge) {
+			font-size: 30px;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	&__text {
+		font-size: 12px;
+
+		@include breakpoint-up(xlarge) {
+			font-size: 40px;
+		}
+	}
+
+	&__none {
+		display: none;
+	}
+}

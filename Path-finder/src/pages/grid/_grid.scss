@@ -1,0 +1,156 @@
+.grid {
+	width: stretch;
+	height: calc(100vh - ($navbar-height + $filter-height));
+
+	@include breakpoint-up(xlarge) {
+		height: calc(100vh - ($navbar-height * 2 + $filter-height * 2));
+	}
+
+	&__container {
+		height: calc(100vh - ($navbar-height + $filter-height + 14px));
+		margin: auto;
+		padding: 5px;
+
+		@include breakpoint-up(xlarge) {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: calc(100vh - ($navbar-height * 2 + $filter-height * 2 + 14px));
+		}
+	}
+
+	&__content {
+		width: stretch;
+		padding: 2px;
+		height: 100%;
+		min-height: 50rem;
+		background-color: $grey;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+		grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+		gap: 2px;
+
+		@include breakpoint-up(xlarge) {
+			grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+			grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
+			gap: 4px;
+		}
+	}
+}
+
+.grid__item {
+	min-height: 30px;
+	background: $light-grey;
+	cursor: pointer;
+	transition: background-color 300ms ease, border-radius 300ms ease;
+	display: flex;
+	align-items: center;
+	position: relative;
+	justify-content: center;
+	aspect-ratio: 1 / 1;
+	overflow: visible;
+	position: relative;
+
+	@include breakpoint-up(xlarge) {
+		font-size: 27.5px;
+		min-height: 50px;
+	}
+
+	&__dropdown {
+		position: absolute;
+		z-index: 4;
+		background-color: $grey;
+		width: 100%;
+		color: $dark-grey;
+		padding: 0.3rem;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		&.upward {
+			top: -400%;
+		}
+
+		&.bottom {
+			top: 100%;
+		}
+
+		&__item {
+			height: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 5px;
+
+			&.yellow {
+				background-color: $yellow;
+			}
+
+			&.red {
+				background-color: $error;
+			}
+
+			&.default {
+				background-color: $dark-grey;
+			}
+		}
+
+		&.disabled {
+			display: none;
+		}
+	}
+
+	&.start {
+		background-color: $yellow;
+	}
+
+	&.target {
+		background-color: $error;
+	}
+
+	&.closed__node,
+	&.open__node,
+	&.best__path,
+	&.start__node,
+	&.end__node {
+		animation: scale-in 500ms cubic-bezier(0.48, 0, 0, 1.8) forwards;
+	}
+
+	&.wall {
+		background-color: $dark-grey;
+		animation: scale-down 500ms cubic-bezier(0.48, 0, 0, 1.8) forwards;
+		z-index: 1;
+	}
+
+	&.open__node {
+		background-color: $primary-main;
+	}
+
+	&.closed__node {
+		background-color: $grey;
+	}
+
+	&.best__path {
+		background-color: $yellow;
+	}
+
+	&.start__node {
+		background-color: $yellow;
+	}
+
+	&.end__node {
+		background-color: $error;
+	}
+
+	&__start,
+	&__target {
+		color: $dark-grey;
+		position: absolute;
+		animation: scale-in 500ms cubic-bezier(0.48, 0, 0, 1.8) forwards;
+	}
+
+	&__none {
+		display: none;
+	}
+}

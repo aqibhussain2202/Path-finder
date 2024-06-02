@@ -1,0 +1,129 @@
+.dropdown {
+	width: 12.5rem;
+	height: 2.5rem;
+	position: relative;
+
+	@include breakpoint-up(xlarge) {
+		height: 4rem;
+		width: 20rem;
+	}
+
+	&__name {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.5rem 0.5rem;
+		width: stretch;
+		height: stretch;
+
+		> p {
+			color: $light-grey;
+			font-size: 14px;
+			transition: color 150ms ease-in-out;
+
+			@include breakpoint-up(xlarge) {
+				font-size: 28px;
+			}
+
+			&.active {
+				color: $white;
+			}
+
+			&.disabled {
+				color: $faded-white;
+			}
+		}
+	}
+
+	&__btn {
+		width: stretch;
+		height: stretch;
+		border: none;
+		background-color: $dark-grey;
+		border-radius: 5px;
+		cursor: pointer;
+
+		&.disabled {
+			pointer-events: none;
+		}
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $light-grey;
+		transition: color 150ms ease-in-out;
+
+		&__flipped {
+			animation: fade-out 300ms ease-in-out forwards;
+		}
+
+		&__normal {
+			animation: fade-out 300ms ease-in-out forwards;
+		}
+
+		&.active {
+			color: $white;
+		}
+
+		&.disabled {
+			color: $faded-white;
+		}
+	}
+
+	&__items {
+		width: stretch;
+		position: absolute;
+		background-color: $dark-grey;
+		top: calc(100% + 10px);
+		border-radius: 5px;
+		width: 12.5rem;
+
+		@include breakpoint-up(xlarge) {
+			width: 20rem;
+		}
+	}
+
+	&__list {
+		padding: 0.5rem 0.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		border-radius: 5px;
+		border: 1px solid $light-grey;
+
+		@include breakpoint-up(xlarge) {
+			gap: 20px;
+		}
+	}
+
+	&__item {
+		border-radius: 5px;
+		cursor: pointer;
+		color: $faded-white;
+		padding: 0.5rem 0.5rem;
+		border: none;
+		outline: none;
+		background-color: $dark-grey;
+		text-align: left;
+		transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+
+		> p {
+			font-size: 14px;
+
+			@include breakpoint-up(xlarge) {
+				font-size: 28px;
+			}
+		}
+
+		&:hover {
+			color: $white;
+			background-color: $grey;
+		}
+
+		&.active {
+			color: $white;
+		}
+	}
+}

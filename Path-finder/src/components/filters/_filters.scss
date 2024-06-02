@@ -1,0 +1,58 @@
+.filters {
+	background-color: $grey;
+	height: $filter-height;
+	position: relative;
+	z-index: 5;
+
+	@include breakpoint-up(xlarge) {
+		$filter-height: 8rem;
+		height: $filter-height;
+	}
+
+	&__list {
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
+		gap: 10px;
+		overflow-x: auto;
+		scrollbar-width: 100px;
+	}
+
+	&__buttons {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		@include breakpoint-up(xlarge) {
+			gap: 20px;
+		}
+	}
+
+	&__tooltips {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		@include breakpoint-up(xlarge) {
+			gap: 20px;
+		}
+	}
+
+	&__dropdowns {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		height: 2.5rem;
+		position: relative;
+
+		@include breakpoint-up(xlarge) {
+			height: 5rem;
+		}
+
+		@include breakpoint-up(xlarge) {
+			gap: 20px;
+		}
+	}
+}

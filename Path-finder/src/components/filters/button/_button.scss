@@ -1,0 +1,50 @@
+.button {
+	width: 12.5rem;
+	height: 2.5rem;
+	position: relative;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+
+	cursor: pointer;
+	transition: filter 150ms ease-in-out, color 150ms ease-in-out,
+		background-color 300ms ease-in-out;
+	font-size: 14px;
+
+	@include breakpoint-up(xlarge) {
+		height: 4rem;
+		width: 20rem;
+		font-size: 28px;
+	}
+
+	&:hover,
+	&:focus {
+		filter: brightness(1.15);
+	}
+
+	&.default {
+		background-color: $dark-grey;
+		color: $white;
+	}
+
+	&.primary {
+		background-color: $primary-main;
+		color: $dark-grey;
+	}
+
+	&.red {
+		background-color: $error;
+		color: $white;
+	}
+
+	&.faint {
+		background-color: $dark-grey;
+		color: $faded-white;
+		cursor: default;
+
+		&:hover,
+		&:focus {
+			filter: brightness(1);
+		}
+	}
+}
